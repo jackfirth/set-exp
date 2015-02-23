@@ -1,18 +1,22 @@
 #lang scribble/manual
 
 @(require scribble/eval
-          (for-label set-exp
-                     racket/base))
-
-@(define set-exp-eval (make-base-eval))
-@(set-exp-eval '(require "main.rkt"))
-@(define-syntax-rule (set-exp-examples datum ...)
-   (examples #:eval set-exp-eval datum ...))
+          (for-label racket/base))
 
 @title{Compact Annotations}
 
 @defmodule[set-exp]
 
+This module adds literal set syntax as a meta-language. 
+
+@codeblock{
+  > #lang set-exp racket
+  > (define some-set {1 2 3 4})
+  > (set-member? some-set 3)
+  #t
+  > (set-member? some-set 'foo)
+  #f
+}
 
 @author[@author+email["Jack Firth" "jackhfirth@gmail.com"]]
 
