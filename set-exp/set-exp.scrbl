@@ -3,9 +3,9 @@
 @(require scribble/eval
           (for-label racket/base))
 
-@title{Compact Annotations}
+@title{Set Expressions}
 
-@defmodule[set-exp]
+@defmodulelang[set-exp]
 
 This module adds literal set syntax as a meta-language. 
 
