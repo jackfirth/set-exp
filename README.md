@@ -1,5 +1,7 @@
 set-exp [![Build Status](https://travis-ci.org/jackfirth/set-exp.svg)](https://travis-ci.org/jackfirth/set-exp) [![Coverage Status](https://coveralls.io/repos/jackfirth/set-exp/badge.svg)](https://coveralls.io/r/jackfirth/set-exp)
 =====================
+[Documentation](http://pkg-build.racket-lang.org/doc/set-exp/index.html)
+
 A Racket meta-language for adding set literals to a language, i.e. making `{1 2 3 4}` a set of four elements.
 
 ```racket
