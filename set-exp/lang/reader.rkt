@@ -2,7 +2,7 @@
   #:language read
   #:wrapper1
   (lambda (t)
-    (list* #'(require (only-in racket/set set))
+    (list* '(require (only-in racket/set set))
            '(require set-exp/lang)
            (t)))
   #:wrapper2
@@ -11,9 +11,10 @@
                          #\{
                          'terminating-macro
                          (lambda (ch in src line col position)
-                           (syntax-case (read-syntax/recursive src in ch #f) ()
+                           (define s (read-syntax/recursive src in ch #f))
+                           (syntax-case s ()
                              [(item ...)
-                              #'(set item ...)])))))
+                              (datum->syntax s (cons 'set (syntax-e s)))])))))
     (lambda (in rd stx?)
       (parameterize ((current-readtable send-readtable))
 	(if stx?
