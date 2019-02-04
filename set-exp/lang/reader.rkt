@@ -14,7 +14,11 @@
                            (define s (read-syntax/recursive src in ch #f))
                            (syntax-case s ()
                              [(item ...)
-                              (datum->syntax s (cons 'set (syntax-e s)))])))))
+                              (datum->syntax
+                               s
+                               (cons 'set (syntax-e s))
+                               s
+                               s)])))))
     (lambda (in rd stx?)
       (parameterize ((current-readtable send-readtable))
 	(if stx?
